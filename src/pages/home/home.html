@@ -1,17 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (input)="search($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<!-- <button (click)="increment()">Increment</button>
+ 
+<div>Current Count: {{ counter | async }}</div>
+
+<button (click)="decrement()">Decrement</button>
+
+<button (click)="reset()">Reset Counter</button>
+<img [src]="url" alt="">
+  
+<input type="file" name="" id="image"> -->
+<virtual-scroller #scroll [items]="products">
+
+        <ion-item (click)="viewProduct(product)" *ngFor="let product of scroll.viewPortItems"> 
+          <ion-thumbnail item-start>
+            <img class="product-img" [src]="product.doc.image">
+          </ion-thumbnail>
+          <h2>{{product.doc.title}}</h2>
+          <p>₱{{product.doc.price}}</p>
+          <button ion-button clear item-end  >View</button>
+        </ion-item>
+
+</virtual-scroller>
+
+
+<ion-fab right bottom>
+  <button (click)="addProduct()" ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
+
 </ion-content>

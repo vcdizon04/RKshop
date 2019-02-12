@@ -1,0 +1,48 @@
+page-product-action {
+  .primary {
+    background-color: #FF0266;
+  }
+   textarea{
+        width: 100%;
+        height: 20vh;
+        object-fit: contain;
+    }
+    img{
+        height: 20vh;
+        object-fit: contain;
+    }
+    .copy {
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+
+    #container2 {
+        display: block;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        white-space: nowrap;
+      }
+      
+      #imglist2 {
+        overflow-y: hidden;
+        display: block;
+        width: 100%;
+      /*height: 15vw;*/
+        height: 100%;
+      }
+      
+      #imglist2 div {
+        width: 20%;
+        display: inline;
+        
+      }
+
+      img {
+        object-fit: contain;
+        height: 30vh;
+        margin: 0 2px;
+      }
+    
+}

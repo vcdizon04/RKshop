@@ -1,5 +1,7 @@
 {
   "name": "ngRxStore",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

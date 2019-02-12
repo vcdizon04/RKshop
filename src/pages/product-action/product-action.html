@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ProductActionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button (click)="view.dismiss()" ion-button icon-only >
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{action}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Title</ion-label>
+      <ion-input [readonly]="action === 'View'" [(ngModel)]="product.title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <p style=" font-size: 1.3rem;
+        color: #999;">Image</p>
+        <!-- <ion-label stacked>Image</ion-label> -->
+        <button [disabled]="action === 'View'" (click)="chooseImage()" ion-button clear small>Select</button>
+        <img *ngIf="product.image" [src]="product.image" alt="">
+      </ion-item>
+    <ion-item>  
+      <ion-label stacked>Price</ion-label>
+      <ion-input [readonly]="action === 'View'"  [(ngModel)]="product.price" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <p style=" font-size: 1.3rem;
+      color: #999;">Description</p>
+      <!-- <ion-label stacked>Description</ion-label> -->
+      <button class="copy" (click)="copy()" ion-button clear>Copy</button>
+      <textarea id="textarea" [readonly]="action === 'View'"  [(ngModel)]="product.description" ></textarea>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
+<ion-footer >
+  <ion-row  class="primary" text-center>
+    <ion-col>
+      <button color="light" (click)="doAction(btnLeft)" ion-button clear >{{btnLeft}}</button>
+    </ion-col>
+    <ion-col *ngIf="!isAdd || isEdit">
+      <button color="light" (click)="doAction(btnRight)" ion-button clear >{{btnRight}}</button>
+    </ion-col>
+  </ion-row>
+ 
+  <div  id="container2" *ngIf="ischooseImage">
+    <div id="imglist2">
+      <div>
+      </div>
+      <div *ngFor="let image of images">
+        <img class ="img animate-grow" [src]="formatUrl(image.id)" alt="asd">
+      </div>
+    </div>
+  </div>
+</ion-footer>
